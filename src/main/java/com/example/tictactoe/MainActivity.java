@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     public void clickedSqr( View v)
     {
         Button btn = (Button)v;
+
         if(btn.getText().equals("."))
         {
             btn.setText("X");
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
             for(int i=0; i<button_map.length; i++) {
                 for(int j=0; j<button_map[i].length; j++) {
+
                     if(button_map[i][j] == btn.getId()){
                         board.placeMark(i, j);
                     }
@@ -73,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
     public void onReset(View v)
     {
         board = new Board();
+
         for(int i=0; i<button_map.length; i++) {
             for(int j=0; j<button_map[i].length; j++) {
                 setBtn(button_map[i][j]);
