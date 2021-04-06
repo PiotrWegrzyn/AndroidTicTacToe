@@ -133,6 +133,26 @@
             android:onClick="end"
             android:text="Quit" />
 
+        <TextView
+            android:id="@+id/resultTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_above="@+id/button01"
+            android:layout_alignStart="@+id/button01"
+            android:layout_alignLeft="@+id/button01"
+            android:layout_alignEnd="@+id/button01"
+            android:layout_alignRight="@+id/button01"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="-60dp"
+            android:layout_marginLeft="-60dp"
+            android:layout_marginTop="38dp"
+            android:layout_marginEnd="-60dp"
+            android:layout_marginRight="-60dp"
+            android:layout_marginBottom="120dp"
+            android:gravity="center"
+            android:textColor="#F44336"
+            android:textSize="36sp" />
+
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

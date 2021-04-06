@@ -6,8 +6,11 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import game.Board;
+import game.Mark;
 
 public class MainActivity extends AppCompatActivity {
     Board board = new Board();
@@ -18,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         button_map[0][0] = R.id.button00;
         button_map[0][1] = R.id.button01;
         button_map[0][2] = R.id.button02;
@@ -56,8 +60,25 @@ public class MainActivity extends AppCompatActivity {
                 Button btn2 = (Button)findViewById(button_map[row][col]);
                 btn2.setText("O");
                 btn2.setTextColor(Color.BLUE);
-
             }
+
+            if(board.isGameOver()){
+                Mark winner = board.getWinningMark();
+                TextView tv = (TextView)findViewById(R.id.resultTextView);
+
+                if(winner.getMark() == 'X'){
+                    tv.setText("YOU WIN!");
+                }
+                else if(winner.getMark() == 'O'){
+                    tv.setText("YOU LOOSE!");
+                }
+                else{
+                    tv.setText("TIE!");
+                }
+            }
+
+
+
 
         }
 
@@ -79,7 +100,8 @@ public class MainActivity extends AppCompatActivity {
     public void onReset(View v)
     {
         board = new Board();
-
+        TextView tv = (TextView)findViewById(R.id.resultTextView);
+        tv.setText("");
         for(int i=0; i<button_map.length; i++) {
             for(int j=0; j<button_map[i].length; j++) {
                 setBtn(button_map[i][j]);
